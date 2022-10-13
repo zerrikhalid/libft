@@ -6,7 +6,7 @@
 /*   By: kzerri <kzerri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 03:56:42 by kzerri            #+#    #+#             */
-/*   Updated: 2022/10/12 18:47:20 by kzerri           ###   ########.fr       */
+/*   Updated: 2022/10/13 20:55:38 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,6 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 			*((char *)dst + (len)) = *((char *)src + (len));
 	}
 	else
-		ft_memcpy(dst, src, len);
+		memcpy(dst, src, len);
 	return (dst);
 }
