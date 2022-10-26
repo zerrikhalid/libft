@@ -6,92 +6,111 @@
 /*   By: kzerri <kzerri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 18:28:20 by kzerri            #+#    #+#             */
-/*   Updated: 2022/10/13 20:50:34 by kzerri           ###   ########.fr       */
+/*   Updated: 2022/10/25 22:00:42 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	int	count_words(char const *s1, char c)
+static	char	**ft_free(char **p, int j)
 {
 	int	i;
-	int	count;
 
 	i = 0;
-	count = 0;
-	while (s1[i] == c)
-		i++;
-	if (s1[i] == '\0')
-		return (count);
-	while (s1[i] != c)
+	while (i < j)
 	{
-		if (s1[i] == '\0')
-			break ;
+		free(p[i]);
+		p[i] = NULL;
 		i++;
 	}
-	count += 1;
-	return (count + count_words(s1 + i, c));
+	free(p);
+	return (NULL);
 }
 
-static	int	count_lenght(char const *s1, char c)
+static	int	letters_c(char const *s1, char c)
 {
 	int	i;
-	int	k;
 
 	i = 0;
-	k = 0;
-	while (*(s1 + k) == c)
-		k++;
-	while (*(s1 + k) != c)
-	{
-		if (*(s1 + k) == '\0')
-			break ;
-		k++;
+	while (s1[i] != c && s1[i])
 		i++;
-	}
 	return (i);
 }
 
-char	**ft_split(char const *s, char c)
+static	char	**init_w(char const *s1, char c)
 {
-	int		i;
 	int		j;
-	int		k;
+	char	**s2;
+
+	j = 0;
+	while (*s1)
+	{
+		while (*s1 == c)
+			s1++;
+		if (*s1 == '\0')
+			break ;
+		while (*s1 != c && *s1)
+			s1++;
+		j += 1;
+	}
+	s2 = (char **)malloc(sizeof(char *) * (j + 1));
+	if (!s2)
+		return (NULL);
+	s2[j] = NULL;
+	return (s2);
+}
+
+static	char	**ft_set(char const *s1, char c)
+{
+	int		j;
 	char	**p;
 
-	p = (char **)malloc(sizeof(char *) * (count_words(s, c) + 1));
 	j = 0;
-	i = 0;
-	p[count_words(s, c)] = NULL;
-	while (s[i])
+	if (!s1)
+		return (NULL);
+	p = init_w(s1, c);
+	if (!p)
+		return (NULL);
+	while (*s1)
 	{
-		if (s[i] == c)
-		{
-			i++;
-			continue ;
-		}
-		p[j] = (char *)malloc(sizeof(char) * count_lenght(&s[i], c) + 1);
-		k = 0;
-		while (s[i])
-		{
-			if (s[i] == c || s[i] == '\0')
-				break ;
-			p[j][k] = s[i];
-			k++;
-			i++;
-		}
-		p[j][k] = '\0';
+		while (*s1 == c)
+			s1++;
+		if (*s1 == '\0')
+			break ;
+		p[j] = (char *)malloc(sizeof(char) * (letters_c(s1, c) + 1));
+		if (!p[j])
+			return (ft_free(p, j));
+		while (*s1 != c && *s1)
+			s1++;
 		j++;
 	}
 	return (p);
 }
 
-int main()
+char	**ft_split(char const *s, char c)
 {
-    char str[] = "learning|||||||is|funny|as||||||||fuck||||";
-    char **p = ft_split(str, '|');
-	int i = 0;
-	while(p[i]) {
-	printf("%s\n", p[i]); i++;
+	char	**p;
+	int		j;
+	int		k;
+
+	j = 0;
+	p = ft_set(s, c);
+	if (!p)
+		return (NULL);
+	while (*s)
+	{
+		k = 0;
+		while (*s == c && *s)
+			s++;
+		while (*s != c && *s)
+		{
+			p[j][k] = *s;
+			s++;
+			k++;
+		}
+		if (p[j] != 0)
+			p[j][k] = '\0';
+		j++;
 	}
+	return (p);
 }

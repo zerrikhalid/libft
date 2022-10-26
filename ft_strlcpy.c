@@ -6,7 +6,7 @@
 /*   By: kzerri <kzerri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 15:46:04 by kzerri            #+#    #+#             */
-/*   Updated: 2022/10/10 02:30:41 by kzerri           ###   ########.fr       */
+/*   Updated: 2022/10/23 23:06:54 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 		j++;
 	if (dstsize == 0)
 		return (j);
-	while (*(src + i) && i < dstsize)
+	while (*(src + i) && i < dstsize - 1)
 	{
 		*(dst + i) = *(src + i);
 		i++;

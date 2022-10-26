@@ -6,7 +6,7 @@
 /*   By: kzerri <kzerri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 23:54:57 by kzerri            #+#    #+#             */
-/*   Updated: 2022/10/24 23:55:23 by kzerri           ###   ########.fr       */
+/*   Updated: 2022/10/26 18:55:26 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,20 @@
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*P;
-	t_list	*n;
+	t_list	*node;
+	t_list	*head;
 
-	p = (t_list*)malloc(sizeof(t_list));
-	if (!p || !lst || !f)
-		return (NULL);
+	head = NULL;
 	while (lst)
 	{
-		if (!(p = ft_lstnew(f(lst->content))
+		node = ft_lstnew(f(lst->content));
+		if (!node)
 		{
-			ft_lstclear(&p, del);
+			ft_lstclear(&head, del);
 			return (NULL);
 		}
-		ft_addback(&n, p);
+		ft_lstadd_back(&head, node);
 		lst = lst->next;
 	}
-	return (n);
+	return (head);
 }

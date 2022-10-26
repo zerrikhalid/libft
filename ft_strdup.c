@@ -6,7 +6,7 @@
 /*   By: kzerri <kzerri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 02:07:36 by kzerri            #+#    #+#             */
-/*   Updated: 2022/10/10 02:28:25 by kzerri           ###   ########.fr       */
+/*   Updated: 2022/10/25 19:07:13 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ char	*ft_strdup(const char *s1)
 	i = ft_strlen(s1);
 	j = 0;
 	p = (char *)malloc(sizeof(char) * (i + 1));
+	if (!p)
+		return (NULL);
 	while (j < i)
 	{
 		*(p + j) = *(s1 + j);

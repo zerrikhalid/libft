@@ -6,7 +6,7 @@
 /*   By: kzerri <kzerri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 21:26:02 by kzerri            #+#    #+#             */
-/*   Updated: 2022/10/11 21:59:31 by kzerri           ###   ########.fr       */
+/*   Updated: 2022/10/25 22:29:48 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,17 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (NULL);
 	start = first(s1, set);
 	end = last(s1, set);
+	if (start > end)
+		return (ft_strdup(""));
 	i = 0;
 	res = (char *)malloc(sizeof(char) * (end - start) + 1);
+	if (!res)
+		return (NULL);
 	while (start < end)
 	{
 		res[i] = s1[start];
 		start++;
 		i++;
 	}
-	return (res);
+	return (res[i] = '\0', res);
 }

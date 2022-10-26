@@ -6,7 +6,7 @@
 /*   By: kzerri <kzerri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 18:01:15 by kzerri            #+#    #+#             */
-/*   Updated: 2022/10/18 18:13:41 by kzerri           ###   ########.fr       */
+/*   Updated: 2022/10/24 00:30:05 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_putnbr_fd(int n, int fd)
 	long	nb;
 
 	nb = n;
-	if (n < 0)
+	if (nb < 0)
 	{
 		nb *= (-1);
 		ft_putchar_fd('-', fd);

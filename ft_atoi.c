@@ -6,7 +6,7 @@
 /*   By: kzerri <kzerri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 05:08:10 by kzerri            #+#    #+#             */
-/*   Updated: 2022/10/10 04:30:20 by kzerri           ###   ########.fr       */
+/*   Updated: 2022/10/25 20:19:03 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_atoi(const char *str)
 {
-	int	i;
-	int	s;
-	int	nb;
+	int		i;
+	int		s;
+	long	nb;
 
 	i = 0;
 	s = 1;

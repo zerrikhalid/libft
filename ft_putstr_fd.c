@@ -6,7 +6,7 @@
 /*   By: kzerri <kzerri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 17:57:21 by kzerri            #+#    #+#             */
-/*   Updated: 2022/10/18 17:59:36 by kzerri           ###   ########.fr       */
+/*   Updated: 2022/10/25 22:42:17 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,11 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	int	i;
-
-	i = 0;
-	while (s[i])
+	if (!s)
+		return ;
+	while (*s)
 	{
-		write(1, &s[i], fd);
-		i++;
+		write(fd, s, 1);
+		s++;
 	}
 }
