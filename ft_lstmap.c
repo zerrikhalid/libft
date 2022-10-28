@@ -6,7 +6,7 @@
 /*   By: kzerri <kzerri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 23:54:57 by kzerri            #+#    #+#             */
-/*   Updated: 2022/10/26 18:55:26 by kzerri           ###   ########.fr       */
+/*   Updated: 2022/10/28 20:05:01 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*node;
 	t_list	*head;
 
+	if (!(f) || !del)
+		return (NULL);
 	head = NULL;
 	while (lst)
 	{
