@@ -6,7 +6,7 @@
 /*   By: kzerri <kzerri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 23:40:04 by kzerri            #+#    #+#             */
-/*   Updated: 2022/10/28 18:28:19 by kzerri           ###   ########.fr       */
+/*   Updated: 2022/10/29 20:54:28 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <ctype.h>
+# include <ctype.h>  
 # include <stdio.h>
 
 typedef struct s_list

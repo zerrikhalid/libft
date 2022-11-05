@@ -6,7 +6,7 @@
 /*   By: kzerri <kzerri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 03:03:11 by kzerri            #+#    #+#             */
-/*   Updated: 2022/10/26 01:49:55 by kzerri           ###   ########.fr       */
+/*   Updated: 2022/11/05 21:52:53 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	*ft_memset(void *b, int c, size_t len)
 {
 	unsigned char	*p;
 
+	if (!b)
+		return (NULL);
 	p = (unsigned char *)b;
 	while (len--)
 	{

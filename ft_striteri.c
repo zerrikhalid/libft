@@ -6,7 +6,7 @@
 /*   By: kzerri <kzerri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 16:20:04 by kzerri            #+#    #+#             */
-/*   Updated: 2022/10/26 18:06:04 by kzerri           ###   ########.fr       */
+/*   Updated: 2022/10/29 17:23:30 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 	int	i;
 
 	i = 0;
-	if (!f)
+	if (!s || !f)
 		return ;
 	while (s[i])
 	{

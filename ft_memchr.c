@@ -6,7 +6,7 @@
 /*   By: kzerri <kzerri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 02:03:22 by kzerri            #+#    #+#             */
-/*   Updated: 2022/10/23 20:11:16 by kzerri           ###   ########.fr       */
+/*   Updated: 2022/11/05 21:51:06 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	int				i;
 
 	i = 0;
+	if (!s)
+		return (NULL);
 	p = (unsigned char *)s;
 	while (n--)
 	{

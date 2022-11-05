@@ -6,17 +6,33 @@
 /*   By: kzerri <kzerri@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 05:08:10 by kzerri            #+#    #+#             */
-/*   Updated: 2022/10/25 20:19:03 by kzerri           ###   ########.fr       */
+/*   Updated: 2022/10/29 02:46:23 by kzerri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+static int	ft_nbrlen(const	char *str)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	if (!str)
+		return (0);
+	while (str[i] && str[i] == '0')
+		i++;
+	while (str[i + j] && (str[i + j] >= '0' && str[i + j] <= '9'))
+		j++;
+	return (j);
+}
+
 int	ft_atoi(const char *str)
 {
-	int		i;
-	int		s;
-	long	nb;
+	int			i;
+	int			s;
+	long long	nb;
 
 	i = 0;
 	s = 1;
@@ -29,6 +45,10 @@ int	ft_atoi(const char *str)
 			s *= (-1);
 		i++;
 	}
+	if (ft_nbrlen(str + i) > 19 && s < 0)
+		return (0);
+	else if (ft_nbrlen(str + i) > 19)
+		return (-1);
 	while (*(str + i) >= '0' && *(str + i) <= '9')
 	{
 		nb = nb * 10 + (str[i] - '0');
